@@ -1,0 +1,55 @@
+#!/bin/bash
+
+# hacky way to test for flag
+[[ $* == *--add* ]] 
+
+files=$(find  ~/{.config,.local/bin,.local/share} \
+    ! -ipath '*cache*' \
+    ! -ipath '*logs*' \
+    ! -ipath '*/trash/*' \
+    ! -ipath '*/icons/*'  \
+    ! -ipath '*/themes/*' \
+    ! -ipath '*/fonts/*' \
+    ! -path '*/discord/*' \
+    ! -path '*/node_modules/*' \
+    ! -path '*.config/Code/*' \
+    ! -path '*/google-chrome/*' \
+    ! -path '*/nvim/plugged/*' \
+    ! -path '*/virtualenv/*' \
+    ! -path '*/calibre/*' \
+    ! -path '*/GIMP/*' \
+    ! -path '*/ranger/plugins/*' \
+    ! -path '*/libreoffice/*' \
+    ! -path '*/akonadi/*' \
+    ! -path '*/spotify/*' \
+    ! -path '*/oomox/*' \
+    ! -path '*/VirtualBox/*' \
+    ! -path '*/balena-etcher-electron/*' \
+    ! -path '*/gconf/*' \
+    ! -path '*/smplayer/*' \
+    -type f  | # get files from config dirs
+    (find ~ -maxdepth 1 -type f -name '.*' && cat) | # get files from home dir
+    sed -e "s/^\/home\/$USER\///") # remove /home/$USER 
+    
+# filter
+
+
+if [[ $* == *--add* ]]
+then
+    echo "$files" | 
+        fzf --multi --prompt "Stage > " --preview "cd ~ && /usr/bin/git --git-dir=/home/$USER/.dotfiles/ --work-tree=/home/$USER -c color.status=always status -s" --preview-window=up:50% | # choose file
+        sed -e "s/^/\/home\/$USER\//" | # re-add /home/$USER
+        xargs -r -d\\n -n1 /usr/bin/git --git-dir="/home/$USER/.dotfiles/" --work-tree="/home/$USER" add && # git add the choosen files
+        [[ $(echo -e "No\nYes" | 
+            fzf --prompt "Commit ? " --preview="cd ~ && /usr/bin/git --git-dir=/home/$USER/.dotfiles/ --work-tree=/home/$USER -c color.status=always status -s" --preview-window=up:90%)\
+        == "Yes" ]] &&
+        /usr/bin/git --git-dir="/home/$USER/.dotfiles/" --work-tree="/home/$USER" commit &&        [[ $(echo -e "No\nYes" | 
+            fzf --prompt "Push ? " --preview="cd ~ && /usr/bin/git --git-dir=/home/$USER/.dotfiles/ --work-tree=/home/$USER -c color.status=always status -s" --preview-window=up:90%)\
+        == "Yes" ]] && /usr/bin/git --git-dir="/home/$USER/.dotfiles/" --work-tree="/home/$USER" push
+else
+    echo "$files" |
+        fzf --multi --prompt "Edit > " --preview 'bat -pp --color=always ~/{}' | # choose file
+        sed -e "s/^/\/home\/$USER\//" | # re-add /home/$USER
+        xargs -r nvim -O 
+fi
+

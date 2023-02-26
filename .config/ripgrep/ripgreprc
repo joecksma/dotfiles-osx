@@ -1,0 +1,13 @@
+# Using glob patterns to include/exclude files or folders
+--glob=!git/*
+
+# if the pattern contains any uppercase letters search case sensitive otherwise insensitive
+--smart-case
+
+# colors for matches
+--colors=match:bg:0xF0,0x71,0x78
+--colors=match:fg:0x21,0x21,0x21
+
+# allow searching pdf files
+#--pre=$HOME/.config/ripgrep/preprocessor
+#--pre-glob='*.pdf'

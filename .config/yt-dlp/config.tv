@@ -1,0 +1,9 @@
+# TODO: when ffmpeg vp9 is fixed remove vcodec!=vp9
+-o "%(title)s__%(uploader)s.%(ext)s"
+--restrict-filenames
+--embed-thumbnail
+--convert-thumbnail jpg
+--embed-metadata
+--progress
+--progress-template "download:%(progress._percent_str)s of %(progress._total_bytes_str)s at %(progress._speed_str.0:30)s ETA %(progress._eta_str.0:25)s"
+--console-title
