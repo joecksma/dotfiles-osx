@@ -9,15 +9,15 @@ tap "homebrew/core"
 tap "homebrew/services"
 
 
-cask alacritty
 cask alt-tab
 cask bitwarden
 cask brave-browser
 cask font-fira-mono-nerd-font
-cask font-sauce-code-pro-nerd-font
-cask iterm2
-cask karabiner-elements
+#cask font-sauce-code-pro-nerd-font
+#cask iterm2
 cask kitty
+#cask alacritty
+#cask karabiner-elements
 # cask microsoft-teams
 cask nextcloud
 cask openinterminal
@@ -32,6 +32,7 @@ cask visual-studio-code
 # cask zoom
 # cask middleclick, args: {'no-quarantine': true} #TODO is this format correct?
 cask macs-fan-control
+cast ubersicht
 
 brew autojump
 brew bat
