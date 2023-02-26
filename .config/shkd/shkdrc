@@ -1,5 +1,6 @@
 # get app id: osascript -e 'id of app "APP"'
 # launch by appid: open -n -b app-id
+# float apps with yabai-float && 
 
 # ---------------------------------------------
 #  Programs

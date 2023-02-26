@@ -11,6 +11,7 @@ export OPENCV_LOG_LEVEL=ERROR
 export EDITOR=nvim
 export VISUAL=nvim
 export RANGER_LOAD_DEFAULT_RC=FALSE
+export HOMEBREW_NO_ANALYTICS=1
 
 #: }}}
 

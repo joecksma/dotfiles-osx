@@ -1,5 +1,8 @@
 # vim:fileencoding=utf-8:ft=zsh:foldmethod=marker
 #: Initialization of OHMYZSH {{{
+export PATH=$HOME/.local/bin:$PATH
+
+
 if [ ! -d "$HOME/.oh-my-zsh" ]
 then
 	echo "Downloading oh-my-zsh and plugins..."

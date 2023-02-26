@@ -23,3 +23,8 @@ echo "Installing simple-bar..."
 git clone https://github.com/Jean-Tinland/simple-bar $HOME/Library/Application\ Support/Übersicht/widgets/simple-bar
 echo "To activate simple-bar, choose 'simple-bar-index-jsx' in Übersicht's widgets."
 echo "The settings of simple-bar can be opened with cmd+,"
+
+echo "Changing some ridiculous defaults..."
+sudo chflags nohidden /Library/ ~/Library/
+sudo chflags nohidden /private
+defaults write com.apple.finder AppleShowAllFiles -boolean true ; killall Finder

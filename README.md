@@ -7,6 +7,3 @@ alias dotfiles="/usr/bin/git --git-dir=$HOME/.config/dotfiles/ --work-tree=$HOME
 && dotfiles checkout \
 && dotfiles config --local status.showUntrackedFiles no \
 && $HOME/.local/bin/.install-brew.sh
-
-## Notes
-- https://github.com/Jean-Tinland/simple-bar
