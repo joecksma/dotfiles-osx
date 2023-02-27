@@ -23,6 +23,7 @@ cask nextcloud
 cask openinterminal
 cask openvpn-connect
 cask raycast
+cask readdle-spark
 cask hyperkey
 cask spacelauncher
 cask spotify
