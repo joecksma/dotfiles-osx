@@ -23,7 +23,7 @@ brew bundle install --file=$HOME/.config/brewfile/Brewfile
 
 echo "Starting services..."
 brew services start yabai
-brew services start shkd
+brew services start skhd
 
 echo "Installing simple-bar..."
 git clone https://github.com/Jean-Tinland/simple-bar $HOME/Library/Application\ Support/Übersicht/widgets/simple-bar
