@@ -2,6 +2,9 @@
 #: Initialization of OHMYZSH {{{
 export PATH=$HOME/.local/bin:$PATH
 
+# Make sure coreutils are loaded before system commands.
+export PATH="$(brew --prefix coreutils)/libexec/gnubin:$PATH"
+
 
 if [ ! -d "$HOME/.oh-my-zsh" ]
 then
@@ -119,6 +122,14 @@ alias psgrep="ps aux | grep -v grep | grep -i -e VSZ -e"
 alias trr="trash-list | awk '{print NR-1 \" | \" \$0}' | fzf --tac --prompt=\"Restore from trash \" | awk '{system(\"echo \"\$1\"| trash-restore >/dev/null\")}'"
 alias tre="echo \"No\nYes\" | fzf --prompt=\"Empty Trash? \" --preview=trash-list --preview-window=up:100 | grep \"Yes\" >/dev/null && echo \"Clearing trash...\" && trash-empty"
 alias bt="btop"
+alias flushdns="dscacheutil -flushcache && killall -HUP mDNSResponder"
+alias afk="open /System/Library/CoreServices/ScreenSaverEngine.app"
+alias lock="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend" # lock mac
+alias ql="qlmanage -p &>/dev/null" # Quick-Look preview files from the command line
+alias cleanup="find . -name '*.DS_Store' -type f -ls -delete" # clean recursively all .DS_Store files
+alias f='open -a Finder ./' # Opens current directory in MacOS Finder
+
+
 #: }}}
 
 #: Keybindings {{{
