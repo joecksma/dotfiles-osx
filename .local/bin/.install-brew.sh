@@ -1,4 +1,4 @@
-#!/usr/bin/sh
+#!/usr/bin/bash
 
 export HOMEBREW_NO_ANALYTICS=1
 echo "Asking for sudo permissions..."
