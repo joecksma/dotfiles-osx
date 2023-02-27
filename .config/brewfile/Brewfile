@@ -75,7 +75,7 @@ brew "trash-cli"
 brew "tree"
 brew "wget"
 brew "yabai", restart_service: true
-brew "shkd", restart_service: true
+brew "skhd", restart_service: true
 brew "yq"
 brew "yt-dlp"
 
