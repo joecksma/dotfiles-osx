@@ -16,6 +16,7 @@ export HOMEBREW_NO_ANALYTICS=1
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
+export HOMEBREW_BREWFILE=$XDG_CONFIG_HOME/brewfile/Brewfile
 
 export EDITOR="nvim"
 export VISUAL="code"

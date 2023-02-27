@@ -9,75 +9,75 @@ tap "homebrew/core"
 tap "homebrew/services"
 
 
-cask alt-tab
-cask bitwarden
-cask brave-browser
-cask font-fira-mono-nerd-font
-#cask font-sauce-code-pro-nerd-font
-#cask iterm2
-cask kitty
-#cask alacritty
-#cask karabiner-elements
-# cask microsoft-teams
-cask nextcloud
-cask openinterminal
-cask openvpn-connect
-cask raycast
-cask readdle-spark
-cask hyperkey
-cask spacelauncher
-cask spotify
-cask stats
-cask ubersicht
-cask visual-studio-code
-# cask zoom
-# cask middleclick, args: {'no-quarantine': true} #TODO is this format correct?
-cask macs-fan-control
-cast ubersicht
+cask "alt-tab"
+cask "bitwarden"
+cask "brave-browser"
+cask "font-fira-mono-nerd-font"
+#cask "font-sauce-code-pro-nerd-font"
+#cask "iterm2"
+cask "kitty"
+#cask "alacritty"
+#cask "karabiner-elements"
+#cask "microsoft-teams"
+cask "nextcloud"
+cask "openinterminal"
+cask "openvpn-connect"
+cask "raycast"
+cask "readdle-spark"
+cask "hyperkey"
+cask "spacelauncher"
+cask "spotify"
+cask "stats"
+cask "ubersicht"
+cask "visual-studio-code"
+# cask "zoom"
+# cask "middleclick", args: {'no-quarantine': true} #TODO is this format correct?
+cask "macs-fan-control"
+cast "ubersicht"
 
-brew autojump
-brew bat
-brew bpython
-brew btop
-brew coreutils
-brew curl
-brew cmake
-brew ffmpeg
-brew fzf
-brew gawk
-brew git
-brew grep
-brew gnu-sed
-brew gnu-tar
-brew htop
-brew pidof
-brew pstree
-brew python
-brew pyenv
-brew imagemagick
-brew jq
-brew lsd
-brew make
-brew mas
-brew mpv
-brew neofetch
-brew ranger
-brew ripgrep
-brew rlwrap
-brew rsync
-brew scrcpy
-brew skhd
-brew sshfs
-brew ssh-copy-id
-brew starship
-brew tldr
-brew trash-cli
-brew tree
-brew wget
-brew yabai, restart_service: true
-brew shkd, restart_service: true
-brew yq
-brew yt-dlp
+brew "autojump"
+brew "bat"
+brew "bpython"
+brew "btop"
+brew "coreutils"
+brew "curl"
+brew "cmake"
+brew "ffmpeg"
+brew "fzf"
+brew "gawk"
+brew "git"
+brew "grep"
+brew "gnu-sed"
+brew "gnu-tar"
+brew "htop"
+brew "pidof"
+brew "pstree"
+brew "python"
+brew "pyenv"
+brew "imagemagick"
+brew "jq"
+brew "lsd"
+brew "make"
+brew "mas"
+brew "mpv"
+brew "neofetch"
+brew "ranger"
+brew "ripgrep"
+brew "rlwrap"
+brew "rsync"
+brew "scrcpy"
+brew "skhd"
+brew "sshfs"
+brew "ssh-copy-id"
+brew "starship"
+brew "tldr"
+brew "trash-cli"
+brew "tree"
+brew "wget"
+brew "yabai", restart_service: true
+brew "shkd", restart_service: true
+brew "yq"
+brew "yt-dlp"
 
 # Install from AppStore
 #mas install 1147396723
