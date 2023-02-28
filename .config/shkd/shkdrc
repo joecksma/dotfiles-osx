@@ -1,107 +1,164 @@
-# get app id: osascript -e 'id of app "APP"'
-# launch by appid: open -n -b app-id
-# float apps with yabai-float && 
+# center with yabai -m window --grid 4:4:1:1:2:2
 
 # ---------------------------------------------
 #  Programs
 # ---------------------------------------------
 
-#TODO
+# in hyperkey map capslock to cmd + alt + ctrl
 
+# program launcher: done through raycast
 
+# Terminals
+cmd + alt + ctrl - return : open -n -b com.apple.Terminal
+cmd + alt + ctrl + shift - return : yabai-float ; open -n -b com.apple.Terminal
+
+# Calculator
+#TODO mod ctrl space : yabai-float ; kitty bpython -p $BIN/pycalc.py
+
+# File Manager
+cmd + alt + ctrl - r: kitty ranger
+cmd + alt + ctrl + shift - r: open -n -b com.apple.finder
+
+# Browser
+cmd + alt + ctrl - b: open -n -b com.brave.Browser
+cmd + alt + ctrl + shift - b: open -n -b com.brave.Browser --args --incognito
+
+# Websites as apps
+cmd + alt + ctrl - a : yabai-float ; open -n -b com.brave.Browser --args --app='https://calendar.google.com/calendar/u/0/r' # Calendar
+cmd + alt + ctrl - n : yabai-float ; open -n -b com.brave.Browser --args --app='https://keep.google.com/u/0/' # Notes
+cmd + alt + ctrl - h : yabai-float ; open -n -b com.brave.Browser --args --app='https://home.joecks.dev' # Homeassistant
+cmd + alt + ctrl - p : yabai-float ; open -n -b com.brave.Browser --args --app='chrome-extension://nngceckbapebfimnlniiiahkandclblb/popup/index.html' --new-window # Bitwarden
+
+# Email
+#TODO cmd + alt + ctrl - e : 
+
+# Editor
+cmd + alt + ctrl - c : open -n -b com.microsoft.VSCode
+#TODO in raycast bind cmd + alt + ctrl + shift - c to vscode recent projects
+
+# Spotify
+cmd + alt + ctrl - m : open -n -b com.spotify.client
+
+#TODO Signal - d
+
+# ---------------------------------------------
+# Yabai
+# ---------------------------------------------
+#TODO mod alt r : launchctl kickstart -k "gui/${UID}/homebrew.mxcl.yabai"
+#TODO mod x : exit menu
+#TODO mod shift x : suspend
 
 # ---------------------------------------------
 # Window Management
 # ---------------------------------------------
-# Windows: Alt + [DIR]
-shift + alt - h : yabai -m window --focus west
-shift + alt - j : yabai -m window --focus south
-shift + alt - k : yabai -m window --focus north
-shift + alt - l : yabai -m window --focus east
+cmd + alt + ctrl - q : yabai -m window --close
+cmd + alt + ctrl - f : yabai -m window --toggle zoom-fullscreen
+#TODO cmd + alt + ctrl - f : yabai -m window --toggle native-fullscreen
+cmd + alt + ctrl - s : yabai -m window --toggle float
+#TODO mod ctrl s : yabai -m window --toggle sticky
 
-# Spaces:  Alt + [NUM]
-alt - 1 : yabai -m space --focus 1
-alt - 2 : yabai -m space --focus 2
-alt - 3 : yabai -m space --focus 3
-alt - 4 : yabai -m space --focus 4
-alt - 5 : yabai -m space --focus 5
-alt - 6 : yabai -m space --focus 6
-alt - 7 : yabai -m space --focus 7
-alt - 8 : yabai -m space --focus 8
-
-# Monitors: Ctrl + Alt + [NUM]
-ctrl + alt - 1  : yabai -m display --focus 1
-ctrl + alt - 2  : yabai -m display --focus 2
 
 # ---------------------------------------------
-#  Moving
+# Notifications
 # ---------------------------------------------
+#TODO alt space : close
+#TODO alt ctrl space : close all
+#TODO alt ctrl h : history pop
+#TODO alt ctrl m : context
 
-# "Swaps" with another Window, obtaining its size and position
-# Swap: Ctrl + Alt + [DIR]
-ctrl + alt - h : yabai -m window --swap west
-ctrl + alt - j : yabai -m window --swap south
-ctrl + alt - k : yabai -m window --swap north
-ctrl + alt - l : yabai -m window --swap east
+# ---------------------------------------------
+# Focus [hypr - [Arrowkey]]
+# ---------------------------------------------
+cmd + alt + ctrl - 0x7b : yabai -m window --focus west
+cmd + alt + ctrl - 0x7c : yabai -m window --focus east
+cmd + alt + ctrl - 0x7e : yabai -m window --focus south
+cmd + alt + ctrl - 0x7d : yabai -m window --focus north
 
-# Sends Window to Space and shifts focus
-# Send: Shift + Cmd + [NUM]
-shift + cmd - 1 : yabai -m window --space  1; yabai -m space --focus 1
-shift + cmd - 2 : yabai -m window --space  2; yabai -m space --focus 2
-shift + cmd - 3 : yabai -m window --space  3; yabai -m space --focus 3
-shift + cmd - 4 : yabai -m window --space  4; yabai -m space --focus 4
-shift + cmd - 5 : yabai -m window --space  5; yabai -m space --focus 5
-shift + cmd - 6 : yabai -m window --space  6; yabai -m space --focus 6
-shift + cmd - 7 : yabai -m window --space  7; yabai -m space --focus 7
-shift + cmd - 8 : yabai -m window --space  8; yabai -m space --focus 8
+# ---------------------------------------------
+# Move [hypr - [Arrowkey]]
+# ---------------------------------------------
+cmd + alt + ctrl + shift - 0x7b : yabai -m window --swap west
+cmd + alt + ctrl + shift - 0x7c : yabai -m window --swap east
+cmd + alt + ctrl + shift - 0x7e : yabai -m window --swap south
+cmd + alt + ctrl + shift - 0x7d : yabai -m window --swap north
 
-# Sends Window to Monitor and shifts focus
-# Send Monitor: Ctrl + Cmd + [NUM]
-ctrl + cmd - 1  : yabai -m window --display 1; yabai -m display --focus 1
-ctrl + cmd - 2  : yabai -m window --display 2; yabai -m display --focus 2
+# Wrap (re inserted at other window)
+#TODO key - 0x7b : yabai -m window --warp west
+#TODO key - 0x7c : yabai -m window --warp east
+#TODO key - 0x7e : yabai -m window --warp south
+#TODO key - 0x7d : yabai -m window --warp north
 
+# ---------------------------------------------
+# Resize
+# ---------------------------------------------
+#TODO mod alt [arrowkey] : resize
+#TODO mod + alt - 0x7b : yabai -m window --resize left:-40:0
+#TODO mod + alt - 0x7c : yabai -m window --resize right:40:0
+#TODO mod + alt - 0x7e : yabai -m window --resize top:0:-40
+#TODO mod + alt - 0x7d : yabai -m window --resize bottom:0:40
+
+# ---------------------------------------------
+# Special keys
+# ---------------------------------------------
+#TODO f1 : song play-pause
+#TODO f2 : song previous
+#TODO f3 : song next
+
+# ---------------------------------------------
+# Switch Workspace
+# ---------------------------------------------
+#TODO might need to simulate wanted behaviour by using (same for move):
+# 6 : yabai -m display --display 2 ; yabai -m space --focus 1
+cmd + alt + ctrl - 1 : yabai -m space --focus 1
+cmd + alt + ctrl - 2 : yabai -m space --focus 2
+cmd + alt + ctrl - 3 : yabai -m space --focus 3
+cmd + alt + ctrl - 4 : yabai -m space --focus 4
+cmd + alt + ctrl - 5 : yabai -m space --focus 5
+cmd + alt + ctrl - 6 : yabai -m space --focus 6
+cmd + alt + ctrl - 7 : yabai -m space --focus 7
+cmd + alt + ctrl - 8 : yabai -m space --focus 8
+cmd + alt + ctrl - 9 : yabai -m space --focus 9
+cmd + alt + ctrl - 10 : yabai -m space --focus 10
+#TODO cmd + alt + ctrl - ssharp : yabai -m space --focus 11
+#TODO cmd + alt + ctrl - dead_acute : yabai -m space --focus 12
+#TODO cmd + alt + ctrl - home : yabai -m space --focus 13
+#TODO cmd + alt + ctrl - end : yabai -m space --focus 14
+#TODO cmd + alt + ctrl - insert : yabai -m space --focus 15
+
+# ---------------------------------------------
+# Move to Workspace
+# ---------------------------------------------
+cmd + alt + ctrl + shift - 1 : yabai -m window --space 1
+cmd + alt + ctrl + shift - 2 : yabai -m window --space 2
+cmd + alt + ctrl + shift - 3 : yabai -m window --space 3
+cmd + alt + ctrl + shift - 4 : yabai -m window --space 4
+cmd + alt + ctrl + shift - 5 : yabai -m window --space 5
+cmd + alt + ctrl + shift - 6 : yabai -m window --space 6
+cmd + alt + ctrl + shift - 7 : yabai -m window --space 7
+cmd + alt + ctrl + shift - 8 : yabai -m window --space 8
+cmd + alt + ctrl + shift - 9 : yabai -m window --space 9
+cmd + alt + ctrl + shift - 10 : yabai -m window --space 10
+#TODO cmd + alt + ctrl + shift - ssharp : yabai -m space --focus 11
+#TODO cmd + alt + ctrl + shift - dead_acute : yabai -m space --focus 12
+#TODO cmd + alt + ctrl + shift - home : yabai -m space --focus 13
+#TODO cmd + alt + ctrl + shift - end : yabai -m space --focus 14
+#TODO cmd + alt + ctrl + shift - insert : yabai -m space --focus 15
+
+
+# ---------------------------------------------
+#TODO Monitor controls
+# ---------------------------------------------
+#TODO ctrl + alt - 1  : yabai -m display --focus 1
+#TODO ctrl + alt - 2  : yabai -m display --focus 2
+
+#TODO ctrl + cmd - 1  : yabai -m window --display 1;
+#TODO ctrl + cmd - 2  : yabai -m window --display 2;
+
+# ---------------------------------------------
+#TODO Move
+# ---------------------------------------------
 # Floating Move
-shift + ctrl - a : yabai -m window --move rel:-20:0
-shift + ctrl - s : yabai -m window --move rel:0:20
-shift + ctrl - w : yabai -m window --move rel:0:-20
-shift + ctrl - d : yabai -m window --move rel:20:0
-
-# Rotate
-alt - r : yabai -m space --rotate 90
-
-# ---------------------------------------------
-# Sizing: Shift + [Alt/Cmd] + [DIR]
-# ---------------------------------------------
-
-# Auto
-shift + alt - 0 : yabai -m space --balance
-
-# Increase (no decrease options, just resizing the relevant windows)
-shift + alt - a : yabai -m window --resize left:-40:0
-shift + alt - s : yabai -m window --resize bottom:0:40
-shift + alt - w : yabai -m window --resize top:0:-40
-shift + alt - d : yabai -m window --resize right:40:0
-
-# ---------------------------------------------
-# Toggling
-# ---------------------------------------------
-
-# Fullscreen (still includes gaps)
-alt - f : yabai -m window --toggle zoom-fullscreen
-
-# Float and center
-alt - t : yabai -m window --toggle float;\
-          yabai -m window --grid 4:4:1:1:2:2
-
-# ---------------------------------------------
-# Floating
-# ---------------------------------------------
-
-# Fill
-shift + alt - up     : yabai -m window --grid 1:1:0:0:1:1
-
-# Left
-shift + alt - left   : yabai -m window --grid 1:2:0:0:1:1
-
-# Right
-shift + alt - right  : yabai -m window --grid 1:2:1:0:1:1
+#TODO shift + ctrl - a : yabai -m window --move rel:-20:0
+#TODO shift + ctrl - s : yabai -m window --move rel:0:20
+#TODO shift + ctrl - w : yabai -m window --move rel:0:-20
+#TODO shift + ctrl - d : yabai -m window --move rel:20:0
